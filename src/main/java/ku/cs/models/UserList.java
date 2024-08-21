@@ -28,8 +28,16 @@ public class UserList {
 
     //TODO: implements this method to change user's password to newPassword by verified oldPassword
     //TODO: return true if process is completed, otherwise return false
+
     public boolean changePassword(String username, String oldPassword, String newPassword) {
-        return false;
+        User exist = new User(username);
+        if (exist.validatePassword(oldPassword)){
+            exist.setPassword(newPassword);
+            return true;
+        }else {
+            return false;
+        }
+
     }
 
     //TODO: implements this method to find user in users with valid password

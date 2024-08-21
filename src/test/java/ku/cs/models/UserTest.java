@@ -8,6 +8,15 @@ import static org.junit.jupiter.api.Assertions.*;
 class UserTest {
 
     @Test
+    @DisplayName("Username should not store in plain text")
+    public void testUsernameIsNotStoreInPlainText() {
+        User user = new User("user01", "plain-p@ssw0rd");
+        String actual = user.getUsername();
+        String unexpected = "plain-p@ssw0rd";
+        assertNotEquals(unexpected, actual);
+    }
+
+    @Test
     @DisplayName("Password should not store in plain text")
     public void testPasswordIsNotStoreInPlainText() {
         User user = new User("user01", "plain-p@ssw0rd");
